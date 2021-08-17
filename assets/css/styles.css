@@ -228,6 +228,10 @@ html {
         color: var(--first-color-alt);
     }
 
+    .show-menu {
+        bottom: 0;
+    }
+
 /* show menu */
 
 
