@@ -10,6 +10,10 @@
 @import './footer';
 @import './scrollup';
 
+body.dark-theme {
+    @include dark-theme();
+}
+
 /*-------------------- base --------------------*/
 * {
     box-sizing: border-box;
@@ -120,4 +124,31 @@ html {
     bottom: 5rem;
 }
 
-        
+/*-------------------- button dark/light --------------------*/
+.nav__btns {
+    display: flex;
+    align-items: center;
+
+    .change-theme {
+        font-size: 1.25rem;
+        color: $title-color;
+        margin-right: $mb-1;
+        cursor: pointer;
+    }
+}
+
+/*-------------------- scrollbar --------------------*/
+::-webkit-scrollbar {
+    width: 0.6rem;
+    background-color: rgb(200, 200, 200);
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(160, 160, 160);
+    border-radius: 0.5rem;
+
+    &:hover {
+        background-color: rgb(140, 140, 140);
+    }
+}

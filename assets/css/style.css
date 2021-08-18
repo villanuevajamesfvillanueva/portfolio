@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200&display=swap");
-/*========== Colors ==========*/
+/*---------- Colors ----------*/
 /* Change favorite color */
 /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 /* HSL color mode */
-/*========== Font and typography ==========*/
+/*---------- Font and typography ----------*/
 /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
-/*========== Font weight ==========*/
-/*========== Margins Bottom ==========*/
+/*---------- Font weight ----------*/
+/*---------- Margins Bottom ----------*/
 /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
-/*========== z index ==========*/
+/*---------- z index ----------*/
 /*---------- breakpoints ---------- */
 /* Font size for large devices */
 .nav {
@@ -559,5 +559,36 @@ html body img {
 /*-------------------- show scroll --------------------*/
 .show-scroll {
   bottom: 5rem;
+}
+
+/*-------------------- button dark/light --------------------*/
+.nav__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.nav__btns .change-theme {
+  font-size: 1.25rem;
+  color: #242329;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/*-------------------- scrollbar --------------------*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: #c8c8c8;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8c8c8c;
 }
 /*# sourceMappingURL=style.css.map */
