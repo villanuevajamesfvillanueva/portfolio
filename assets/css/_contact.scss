@@ -1,0 +1,25 @@
+.contact__container {
+    row-gap: 3rem;
+
+    .contact__information {
+        display: flex;
+        margin-bottom: $mb-2;
+
+        .contact__icon {
+            font-size: 2rem;
+            color: $first-color;
+            margin-right: $mb-0-75;
+        }
+
+        .contact__title {
+            font-size: $h3-font-size;
+            font-weight: $font-medium;
+        }
+
+        .contact__subtitle {
+            font-size: $small-font-size;
+            color: $text-color-light;
+        }
+    }
+}
+
