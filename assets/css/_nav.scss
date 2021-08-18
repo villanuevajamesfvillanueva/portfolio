@@ -64,6 +64,11 @@
     .show-menu {
         bottom: 0;
     }
+
+    /* active link */
+    .active-link {
+        color: $first-color;
+    }
 }
 
 @media screen and (max-width: $breakpoint-tablet) {
@@ -80,8 +85,4 @@
     }
 }    
 
-
-/* Active link */
-
-
-/* Change background header */
+/* change background header */

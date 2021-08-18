@@ -1,23 +1,21 @@
-/*==================== MENU SHOW Y HIDDEN ====================*/
+// -------------------- menu show/hide --------------------
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 
-/*===== MENU SHOW =====*/
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu');
     });
 }
 
-/*===== MENU HIDE =====*/
 if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
     });
 }
 
-/*==================== REMOVE MENU MOBILE ====================*/
+// -------------------- remove menu mobile --------------------
 const navLink = document.querySelectorAll('.nav__link');
 
 function linkAction() {
@@ -26,7 +24,7 @@ function linkAction() {
 }
 navLink.forEach(item => item.addEventListener('click', linkAction));
 
-/*==================== ACCORDION SKILLS ====================*/
+/*-------------------- skills --------------------*/
 const skillsContent = document.getElementsByClassName('skills__content');
 const skillsHeader = document.querySelectorAll('.skills__header');
 
@@ -46,7 +44,7 @@ skillsHeader.forEach((el) => {
     el.addEventListener('click', toggleSkills);
 });
 
-/*==================== QUALIFICATION TABS ====================*/
+/*-------------------- portfolio swiper  --------------------*/
 let swiper = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
@@ -62,22 +60,33 @@ let swiper = new Swiper('.portfolio__container', {
     keyboard: true,
 });
 
-/*==================== SERVICES MODAL ====================*/
 
 
-/*==================== PORTFOLIO SWIPER  ====================*/
+
+/*-------------------- scroll sections active link --------------------*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+/*-------------------- change background header --------------------*/ 
 
 
-/*==================== TESTIMONIAL ====================*/
+/*-------------------- show scroll up --------------------*/ 
 
 
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-
-
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
-
-
-/*==================== SHOW SCROLL UP ====================*/ 
-
-
-/*==================== DARK LIGHT THEME ====================*/ 
+/*-------------------- dark light theme --------------------*/ 
