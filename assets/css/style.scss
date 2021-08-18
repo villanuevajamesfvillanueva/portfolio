@@ -8,6 +8,7 @@
 @import './portfolio';
 @import './contact';
 @import './footer';
+@import './scrollup';
 
 /*-------------------- base --------------------*/
 * {
@@ -114,6 +115,9 @@ html {
 }
     
 
-        
+/*-------------------- show scroll --------------------*/
+.show-scroll {
+    bottom: 5rem;
+}
 
         

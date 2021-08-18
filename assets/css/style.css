@@ -23,7 +23,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* active link */
+  /* change active link onscroll */
 }
 .nav .nav__logo {
   color: #242329;
@@ -84,6 +84,12 @@
   color: #6e57e0;
 }
 
+/* change background header onscroll */
+.scroll-header {
+  -webkit-box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
+
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;
@@ -99,7 +105,6 @@
     transition: 0.3s;
   }
 }
-/* change background header */
 .home__container {
   gap: 1rem;
 }
@@ -428,6 +433,31 @@ footer .footer__container .footer__title, footer .footer__container .footer__sub
   color: #FFF;
 }
 
+.scrollup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: -20%;
+  z-index: 10;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.scrollup .scrollup__icon {
+  font-size: 2.25rem;
+}
+.scrollup:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
 /*-------------------- base --------------------*/
 * {
   -webkit-box-sizing: border-box;
@@ -524,5 +554,10 @@ html body img {
   left: 0;
   z-index: 100;
   background-color: #fbfbfe;
+}
+
+/*-------------------- show scroll --------------------*/
+.show-scroll {
+  bottom: 5rem;
 }
 /*# sourceMappingURL=style.css.map */
