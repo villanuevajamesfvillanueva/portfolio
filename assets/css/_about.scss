@@ -7,12 +7,13 @@
 
 .about__description {
     text-align: center;
+    margin-top: $mb-1-5;
     margin-bottom: $mb-2-5;
 }
 
 .about__info {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: $mb-2-5;
 
     .about__info-title {

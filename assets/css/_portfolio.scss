@@ -10,6 +10,12 @@
             justify-self: center;
         }
 
+        @media (min-width: 768px) {
+            .portfolio__img {
+                width: 320px;
+            }
+        }
+
         .portfolio__title {
             font-size: $h3-font-size;
             margin-bottom: $mb-0-5;
@@ -17,6 +23,10 @@
 
         .portfolio__description {
             margin-bottom: $mb-0-75;
+        }
+
+        .portfolio__techstack--icon {
+            height: 25px;
         }
     }
 

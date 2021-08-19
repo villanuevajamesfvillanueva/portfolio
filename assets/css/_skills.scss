@@ -35,6 +35,9 @@
         display: inline-flex;
         flex-wrap: wrap;
 
+        .skills__list--icon {
+            height: 50px;
+        }
     }
 }
 

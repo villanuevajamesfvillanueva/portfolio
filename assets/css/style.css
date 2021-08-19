@@ -170,6 +170,7 @@
 
 .about__description {
   text-align: center;
+  margin-top: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
@@ -177,9 +178,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-bottom: 2.5rem;
 }
 .about__info .about__info-title {
@@ -242,6 +242,9 @@
   display: inline-flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+.skills__container .skills__list .skills__list--icon {
+  height: 50px;
 }
 
 .skills__open .skills__list {
@@ -308,12 +311,20 @@
   border-radius: 0.5rem;
   justify-self: center;
 }
+@media (min-width: 768px) {
+  .portfolio__container .portfolio__content .portfolio__img {
+    width: 320px;
+  }
+}
 .portfolio__container .portfolio__content .portfolio__title {
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
 .portfolio__container .portfolio__content .portfolio__description {
   margin-bottom: 0.75rem;
+}
+.portfolio__container .portfolio__content .portfolio__techstack--icon {
+  height: 25px;
 }
 .portfolio__container .swiper-button-prev, .portfolio__container .swiper-button-next {
   outline: none;
@@ -778,8 +789,8 @@ html body img {
             transform: translateX(-6rem);
   }
 
-  .services__container {
-    grid-template-columns: repeat(3, 238px);
+  .skills__header {
+    padding: 0 2rem;
   }
 
   .portfolio__content {
