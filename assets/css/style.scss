@@ -10,6 +10,7 @@
 @import './footer';
 @import './scrollup';
 
+
 body.dark-theme {
     @include dark-theme();
 }
@@ -152,3 +153,5 @@ html {
         background-color: rgb(140, 140, 140);
     }
 }
+
+@import './media_queries';
