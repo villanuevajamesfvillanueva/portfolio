@@ -237,21 +237,11 @@
   color: #a19fad;
 }
 .skills__container .skills__list {
-  row-gap: 1.5rem;
-  padding-left: 2.7rem;
-}
-.skills__container .skills__list .skills__title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 0.5rem;
-}
-.skills__container .skills__list .skills__title .skills__name {
-  font-size: 0.938rem;
-  font-weight: 500;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .skills__open .skills__list {
