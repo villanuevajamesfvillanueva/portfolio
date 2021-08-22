@@ -1,0 +1,1259 @@
+:root {
+    --color: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    overflow: hidden;
+    
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+main {
+    width: 100vw;
+    height: 100vh;
+    /* background: green; */
+    padding: 0 10vw;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .board {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60vh;
+        height: 60vh;
+        border: 1px solid black;
+        cursor: none;
+    }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .cell {
+                width: 20vh;
+                height: 20vh;
+                background-color: var(--color);
+                text-align: center;
+                border: 1px solid black;
+                font-size: 16vh;
+                font-weight: 100;
+            }
+
+                .clickable {
+                    color: var(--color);
+                    font-size: 0;
+                }
+
+                /* .pointer {
+                    cursor: pointer;
+                } */
+
+                    .winnerceleb {
+                        background: red;
+                    }
+
+
+    .menu {
+        width: 60vh;
+        height: 60vh;
+        padding: 1vh 0;
+        background: white;
+        
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .history-btn-container, .score-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        width: 100%;
+    }
+
+    .score-container {
+        /* background: green; */
+        height: 50vh;
+    }
+
+        .player {
+            width: 27vh;
+            height: 50vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            /* background: red; */
+            text-align: center;
+            font-size: 5rem;
+            /* border: 1px solid black; */
+        }
+
+        .score {
+            border: 1px solid black;
+            width: 100%;
+            height: 35vh;
+            font-size: 10rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+    .history-btn-container {
+        /* background: red; */
+        height: 5vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            cursor: pointer;
+            width: 7vw;
+            height: 5vh;
+        }        
+        
+        #previous, #next {
+            transform: scale(0);
+        }
+        
+            .inactive {
+                cursor: default;
+                /* background: gray; */
+                color: gray;
+            }
+
+
+    .btn span {
+        font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+#modal1, .win-announce {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    z-index: 10;
+    border: none;
+    background-color: white;
+    border-radius: none;
+    width: 100%;
+    height: 15vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+    #modal1 h1 {
+        font-size: 5rem;
+        font-weight: 100;
+    }
+
+    .win-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 7vw;
+    }
+
+    .win-announce.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+
+#modal1.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+    
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        /* background: red; */
+    }
+        .button {
+            width: 20vw;
+            height: 10vw;
+            /* background: gray; */
+            /* border: 1px solid black; */
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+            font-weight: 100;
+        }
+
+            #buttonX {
+                margin-left: 15vw;
+            }
+            #buttonO {
+                margin-right: 15vw;
+            }
+
+.overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-color: rgba(128, 128, 128, 0.8);
+}
+
+
+    .overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+
+.cursor {
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    /* border: 2px solid black; */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    text-align: center;
+    font-size: 10rem;
+    font-weight: 100;
+}
+     
+
+
+
+footer {
+    position: relative;
+    bottom: 5vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    padding-right: 1rem;
+    /* padding-bottom: 1rem; */
+
+    width: 100%;
+    height: 5vh;
+    /* background: red; */
+    
+}
+
+
+footer span, footer a span  {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin: 0 5px;
+}
+
+      
+.modal2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    max-height: 70%;
+    overflow-y: scroll;
+
+    font-weight: 300;
+}
+
+
+    .modal2::-webkit-scrollbar {
+        width: 0.3rem;
+    }
+
+    .modal2::-webkit-scrollbar-track {
+        background: var(--ligther-darkishdarkish);
+    }
+
+    .modal2::-webkit-scrollbar-thumb {
+        background: var(--darkish);
+    }
+
+.modal2.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+    .modal2-header {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--ligther-darkish);
+        /* background:green; */
+    }
+
+        .modal2-title {
+            font-size: 1.25rem;
+        }
+
+#modal2-close {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2rem;
+}
+
+        .modal2-body {
+            padding: 10px 50px;
+            font-size: 0.8rem;
+            line-height: 1.2rem;            
+        }
+
+#build-log {
+    cursor: pointer;
+}
+
+#tictactoe-svg {
+    position: relative;
+    bottom: -7px;
+    width: 2.5rem;
+    height: 2rem;
+    padding: 0 0 0 7px;
+}
+
+.header {
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+    .header h1 {
+        font-weight: 300;
+        letter-spacing: 10px;
+        font-size: 4rem;
+    }
+
+
+
+
+.chess-ad-container {
+    position: fixed;
+    bottom: 5vh;
+    right: 2vh;
+    height: 10vh;
+    width: 10vw;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.7);
+    /* background: red; */
+    font-size: 1rem;
+    animation: float 2.5s ease infinite;
+    transform: scale(0);
+}    
+    @keyframes float {
+        0% {bottom: 5vh;}
+        50% {bottom: 7vh;}
+        100% {bottom: 5vh;}
+    }
+
+    .chess-ad {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-end;
+        /* justify-content: center; */
+    }
+
+        #chess-ad-close {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.5rem;
+            height: 2vh;
+            margin: 0 0.5vw 0 0;
+
+        }
+
+        .chess-ad-container div div {
+            font-size: 0.8rem;
+            font-weight: 400;
+            padding: 10px 10px;
+        }
+
+@media only screen and (max-width: 320px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 25vw;
+        height: 25vw;
+        font-size: 20vw;
+    }
+
+    .board {
+        width: 75vw;
+        height: 75vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 3rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 5rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 0.8rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        display: none;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.6rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 2vh;
+        left: 0;
+        height: 7vh; 
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 1.2rem;
+        }
+
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 10vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+      
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+
+}
+
+
+@media only screen and (max-width: 480px) and (min-device-width: 321px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 25vw;
+        height: 25vw;
+        font-size: 20vw;
+    }
+
+    .board {
+        width: 75vw;
+        height: 75vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 3rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 5rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 0.8rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        display: none;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.6rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 2vh;
+        left: 0;
+        height: 7vh; 
+    }
+    
+    .header h1 {
+        font-weight: 400;
+        letter-spacing: 1vw;
+        font-size: 1.2rem;
+    }
+
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 10vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+        
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+
+}
+
+
+@media only screen and (max-width: 768px) and (min-device-width: 481px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 20vw;
+        height: 20vw;
+        font-size: 16vw;
+    }
+
+    .board {
+        width: 60vw;
+        height: 60vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 4rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 7rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 1.2rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 3.5rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        /* .win-body {
+            font-size: 7vw;
+        } */
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 6rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        display: none;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.8rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 7vh; 
+        /* background: red; */
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 1.8rem;
+        }
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 12vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+        
+            #chess-ad-close {
+                font-size: 1.5rem;
+                height: 2vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.8rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+
+}
+
+
+@media only screen and (max-width: 1024px) and (min-device-width: 769px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 20vw;
+        height: 20vw;
+        font-size: 16vw;
+    }
+
+    .board {
+        width: 60vw;
+        height: 60vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+            /* background: red; */
+        }
+
+            .name {
+                width: 100%;
+                height: 7vh;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+
+            .score {
+                width: 100%;
+                height: 28vh;
+                font-size: 10rem;
+            }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 1.5rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 3.5rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        /* .win-body {
+            font-size: 7vw;
+        } */
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 6rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        display: none;
+    }
+    
+    footer span, footer a span  {
+        font-size: 1rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4vh; 
+        /* background: red; */
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 2.5rem;
+        }
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 12vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+        
+            #chess-ad-close {
+                font-size: 3rem;
+                height: 3vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 1.5rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+}
+
+@media (max-width: 1200px) and (min-device-width: 1025px) {
+
+}
+
+@media (min-width: 1201px) {
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 823px) and (orientation: landscape) {
+    main {
+        padding: 0 10vw;
+        padding-top: 5vh;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+        .board {
+            width: 60vh;
+            height: 60vh;
+            /* padding: 0; */
+            margin: 0;
+     
+        }
+    
+                .cell {
+                    width: 20vh;
+                    height: 20vh;
+                    font-size: 16vh;
+                    font-weight: 100;
+                   
+                }
+    
+                        .winnerceleb {
+                            background: red;
+                        }
+    
+    
+        .menu {
+            width: 60vh;
+            height: 60vh;
+            padding: 0;
+            margin: 0;
+        }
+    
+    
+        .score-container {
+            /* background: red; */
+            height: 50vh;
+        }
+    
+            .player {
+                width: 27vh;
+                height: 50vh;
+            }
+    
+            .name {
+                width: 100%;
+                height: 10vh;
+               
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 200;
+            }
+    
+            .score {
+                border: 1px solid black;
+                width: 100%;
+                height: 35vh;
+                font-size: 4rem;
+            }
+    
+    
+    
+        .history-btn-container {
+            height: 5vh;
+            
+            padding: 0;
+        }
+            .btn {
+                width: 10vw;
+                height: 7vh;
+            }        
+            
+        
+    
+        .btn span {
+            font-size: 0.7rem;
+        }
+    
+    #modal1, .win-announce {
+        height: 45vh;
+    }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+    
+    
+    
+    #modal1.active{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+            .button {
+                font-size: 4rem;
+                font-weight: 200;
+            }
+    
+                #buttonX {
+                    margin-left: 15vw;
+                }
+                #buttonO {
+                    margin-right: 15vw;
+                }
+    
+    
+    
+    
+    .cursor { 
+        display: none;   
+    }
+         
+    
+    
+    footer {
+        bottom: 5vh;
+        font-size: 10px;
+        padding-right: 1rem;
+    
+        width: 100%;
+        height: 5vh;
+    }
+    
+    
+    footer span, footer a span  {
+        font-size: 0.5rem;
+        font-weight: 400;
+        margin: 0 5px;
+    }
+       
+    .header {
+        top: 5vh;
+        left: 0;
+        width: 100vw;
+        height: 10vh;
+    }
+    
+        .header h1 {
+            font-weight: 300;
+            letter-spacing: 10px;
+            font-size: 2rem;
+        }
+
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 15vh;
+        width: 25vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+    
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+}
