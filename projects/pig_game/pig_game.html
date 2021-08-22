@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/pig_game.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+    <title>Pig Game</title>
+    <link rel="shortcut icon" type="image/jpg" href="assets/dice.ico"/>
+    
+</head>
+    <main>
+        <div class="instruct"></div>
+
+        <div class="middle-container">
+            <div class="player player1-container" id="player1-container">
+                <span class="player-name">Player 1</span>
+                <span class="score" id="player1-score">0</span>
+                <span class="current-score" id="player1-currentscore">0</span>
+            </div>
+    
+            <div class="middle-div">
+                <div class="button roll" onclick="roll()">roll</div>
+                <div>
+                    <div class="dice" id="dice" data-side="1">
+                        <div class="sides side-1">
+                                <span class="dot dot-1"></span>
+                        </div>
+                        <div class="sides side-2">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>
+                        </div>
+                        <div class="sides side-3">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>  
+                                <span class="dot dot-3"></span>
+                        </div>
+                        <div class="sides side-4">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>  
+                                <span class="dot dot-3"></span>
+                                <span class="dot dot-4"></span>
+                        </div>
+                        <div class="sides side-5">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>  
+                                <span class="dot dot-3"></span>
+                                <span class="dot dot-4"></span>
+                                <span class="dot dot-5"></span>
+                        </div>
+                        <div class="sides side-6">
+                                <span class="dot dot-1"></span>
+                                <span class="dot dot-2"></span>  
+                                <span class="dot dot-3"></span>
+                                <span class="dot dot-4"></span>
+                                <span class="dot dot-5"></span>
+                                <span class="dot dot-6"></span>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="button hold" onclick="hold()">hold</div>
+            
+            </div>
+            <div class="player player2-container" id="player2-container">
+                <span class="player-name">Player 2</span>
+                <span class="score" id="player2-score">0</span>
+                <span class="current-score" id="player2-currentscore">0</span>
+            </div>
+        </div>
+
+        <div class="turn-display"></div>
+        <div class="button restart" onclick="window.location.reload();">Restart</div> 
+
+        <audio src="assets/dice.mp3" type="audio/wav" id="roll-audio"></audio>
+
+
+    </main>
+    
+
+<body>
+    <script src="assets/pig_game.js"></script>
+</body>
+</html>
