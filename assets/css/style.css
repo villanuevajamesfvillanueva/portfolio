@@ -612,7 +612,7 @@ html body img {
   }
 }
 /*-------------------- medium devices --------------------*/
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .nav__menu {
     position: fixed;
     bottom: -100%;
